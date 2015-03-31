@@ -1,0 +1,12 @@
+[Unit]
+Description=Apache web service
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+RestartSec=10s
+ExecStart=sleep 10; /usr/bin/docker run -v /home/core/share/apache.d:/var/www/html -p 8080:80 -d apache
+
+[Install]
+WantedBy=multi-user.target
