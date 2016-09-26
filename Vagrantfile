@@ -136,7 +136,8 @@ Vagrant.configure("2") do |config|
       end
 
       # Provision Docker
-      config.vm.provision "docker", images: [ "ubuntu" ]
+      #config.vm.provision "docker", images: [ "ubuntu" ]
+      config.vm.provision "docker", images: [ "ubuntu:xenial" ]
 
       # Share folder - To avoid password prompts: (http://docs.vagrantup.com/v2/synced-folders/nfs.html)
       config.vm.synced_folder "share", "/home/core/share", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
